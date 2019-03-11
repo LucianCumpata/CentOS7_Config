@@ -1,6 +1,6 @@
 [Unit]
 Description=MLMOS homework 1 linux config service
-Requires=Network.target
+After=network.target
 
 [Service]
 Type=oneshot
