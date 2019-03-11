@@ -6,7 +6,7 @@ yum update -y
 
 #This will change the hostname
 hostname=`awk -F":" '/hostname/{printf("%s",$2)}' ${config_path}/config.yaml
-hostnamectl set_hostname ${hostname}
+hostnamectl set-hostname ${hostname}
 
 #This will configure existing network interfaces
 
@@ -27,3 +27,12 @@ touch /var/log/system-bootstrap.log
 
 #This will inspect /etc/selinux/config and will check if "SELINUX=" is disabled
 # and will use command "setenforce 0"
+
+#setenforce 0
+
+#Will redirect service status to system-bootstrap.log
+systemctl status bootstrap.service >> /var/log/system-bootstrap.log
+
+#Will delete the service afterwards
+
+rm -f /etc/systemd/system/bootstrap.service
