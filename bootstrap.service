@@ -5,9 +5,7 @@ After=network.target
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/yum -y install git
-Type=oneshot
 ExecStart=/usr/bin/git clone https://github.com/LucianCumpata/CentOS7_Config.git /bootstrap_config
-Type=oneshot
 ExecStart=/bootstrap_config/bootstrap.sh
 
 [Install]
